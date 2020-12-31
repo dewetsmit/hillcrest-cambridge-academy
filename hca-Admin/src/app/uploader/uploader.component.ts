@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'uploader',
@@ -6,7 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./uploader.component.scss']
 })
 export class UploaderComponent {
-
+  
+  @Input() album:string;
+  
   isHovering: boolean;
 
   files: File[] = [];

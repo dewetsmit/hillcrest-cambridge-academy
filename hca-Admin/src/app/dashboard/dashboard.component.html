@@ -1,1 +1,10 @@
-<uploader></uploader>
+<label>Choose Album {{album}}</label>
+<select [value]="album">
+    <option value="test">Test</option>
+</select>
+<uploader [album]="album"></uploader>
+<div class="flex-grid">
+    <div class="col" *ngFor="let item of files">
+        <img [src]="item"/>
+    </div>
+</div>

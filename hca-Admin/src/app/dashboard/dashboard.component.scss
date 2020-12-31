@@ -24,3 +24,23 @@
   progress::-webkit-progress-value {
     transition: width 0.1s ease;
   }
+
+  .flex-grid{
+    display: flex;
+    .col{
+      max-height: 150px;
+      width: 100%;
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        width: auto;
+        height: 100%;
+      }
+      .title{
+        
+      }
+    }
+  }
