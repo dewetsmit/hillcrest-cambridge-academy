@@ -1,6 +1,4 @@
 
-Album: {{album}}
-
 <div class="dropzone" 
      dropzone
      (hovered)="toggleHover($event)"
@@ -8,12 +6,15 @@ Album: {{album}}
      [class.hovering]="isHovering">
 
 
-     <h3>AngularFire Drop Zone</h3>
+     <h3>Drop Zone</h3>
      <p>Drag and Drop a File</p>
 </div>
 
-<h3>Uploads</h3>
-
-<div *ngFor="let file of files">
-  <upload-task [file]="file"></upload-task>
-</div>
+<ng-container *ngIf="files.length > 0">
+  <div class="uploads">
+  <h3>Uploads</h3>
+  <div *ngFor="let file of files">
+    <upload-task [albumName]="albumName" [file]="file"></upload-task>
+  </div>
+  </div>
+</ng-container>

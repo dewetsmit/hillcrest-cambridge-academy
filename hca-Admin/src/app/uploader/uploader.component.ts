@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class UploaderComponent {
   
-  @Input() album:string;
+  @Input() albumName:string;
   
   isHovering: boolean;
 

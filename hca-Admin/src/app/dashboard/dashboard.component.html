@@ -1,10 +1,39 @@
-<label>Choose Album {{album}}</label>
-<select [value]="album">
-    <option value="test">Test</option>
-</select>
-<uploader [album]="album"></uploader>
-<div class="flex-grid">
-    <div class="col" *ngFor="let item of files">
-        <img [src]="item"/>
+<div class="toolbar">
+    <div class="header">
+        <label>Album</label>
+        <select [(ngModel)]="album" (change)="onChange()">
+            <option *ngFor="let album of albums" [ngValue]="album">{{album.name}}</option>
+        </select>
+        <p>{{files.length}} images</p>
+    </div>
+    <div class="actions">
+        <button (click)="toggleCreate()">Create New Album</button>
     </div>
 </div>
+<div class="flex-grid">
+    <div class="flex-grid col">
+        <div class="col" *ngFor="let item of files">
+            <img [src]="item"/>
+        </div>
+    </div>
+</div>
+<uploader [albumName]="album?.name"></uploader>
+
+<ngx-ui-loader></ngx-ui-loader>
+
+<div *ngIf="createNew" class="create-new">
+    <div class="toolbar">
+        <div class="header">
+            <h2>Create New Album</h2>
+        </div>
+        <div class="actions">
+            <button (click)="toggleCreate()">X</button>
+        </div>
+    </div>
+    <form>
+        <label>Name</label>
+        <input placeholder="Album name" type="text"/>
+        <button (click)="createAlbum('test3')">Save</button>
+    </form>
+</div>
+<div class="backdrop" (click)="toggleCreate()" [class.active]="createNew"></div>

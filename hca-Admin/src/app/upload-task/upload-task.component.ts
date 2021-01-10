@@ -12,7 +12,7 @@ import { finalize, tap } from 'rxjs/operators';
 export class UploadTaskComponent implements OnInit {
 
   @Input() file: File;
-
+  @Input() albumName: string;
   task: AngularFireUploadTask;
 
   percentage: Observable<number>;
@@ -28,7 +28,7 @@ export class UploadTaskComponent implements OnInit {
   startUpload() {
 
     // The storage path
-    const path = `test/${Date.now()}_${this.file.name}`;
+    const path = `${this.albumName}/${Date.now()}_${this.file.name}`;
 
     // Reference to storage bucket
     const ref = this.storage.ref(path);

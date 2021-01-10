@@ -1,11 +1,9 @@
 .dropzone { 
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column; 
-    min-width: 80vw;
+    min-width: 100%;
     font-weight: 200;
-    height: 300px;
+    min-height: 300px;
     border: 2px dashed #f16624;
     border-radius: 5px;
     background: white;
@@ -23,4 +21,14 @@
   
   progress::-webkit-progress-value {
     transition: width 0.1s ease;
+  }
+
+  .uploads{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 2px;
+    margin: 10px;
   }

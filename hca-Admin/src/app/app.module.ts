@@ -13,6 +13,8 @@ import { ToastNotificationsModule } from 'ngx-toast-notifications';
 import { DropzoneDirective } from './dropzone.directive';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploadTaskComponent } from './upload-task/upload-task.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { HttpClientModule } from '@angular/common/http';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCYAK4iQqFAOUrSiNsMdedZrSVBRktY1U",
@@ -33,6 +35,7 @@ const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
@@ -41,6 +44,7 @@ const firebaseConfig = {
     AngularFireAuthModule, 
     AngularFireStorageModule,
     ToastNotificationsModule.forRoot({duration: 6000, type: 'primary'}),
+    NgxUiLoaderModule
   ],
   providers: [ToastNotificationsModule],
   bootstrap: [AppComponent]
