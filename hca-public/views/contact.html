@@ -1,0 +1,116 @@
+﻿
+<div class="container-fluid">
+        <div class="container section">
+            <div class="col-md-6" ng-controller="contactFormCtrl">
+            <form name="contactForm" id="contactForm"  class="form-search form-horizontal">
+                <h4><i class="fa fa-pencil-square"/> Write to us</h4>
+                <hr class="blue"/>
+                    <label>Name and Surname</label>
+                    <input type="text" ng-model="user" class="input-medium form-control" placeholder="Name and surname" required >
+
+                    <label>Contact Number</label>
+                    <input type="text" ng-model="contactNumber" class="input-medium form-control" placeholder="Contact Number" />
+
+                    <label>Email Address</label>
+                    <input type="email" ng-model="email" class="input-medium form-control" placeholder="Email" required/>
+
+                    <label>Message</label>
+                    <textarea type="text" class="form-control" ng-model="message" class="input-medium form-control" placeholder="Message"/>
+                <br/><br/>
+                    <div class="col-md-12 text-center" id="submitFormButton">
+                        <br/><br/>
+                            <button style="width:100%" type="submit" class="btn btn-responsive btn-blue full-width text-center" ng-click="formsubmit(contactForm.$valid)"  ng-disabled="!contactForm.$valid">Submit </button>
+                        <br/><br/>
+                    </div>
+                <br/><br/>
+            </form>
+            <div class="alert alert-success alert-dismissable hidden" ng-model="result">
+                <span ng-click="clearForm()" class="close">×</span>
+                <strong>Success!</strong>{{result}}
+            </div>
+            </div>
+            <div class="col-md-6">
+                <h4><i class="fa fa-phone-square"/> Give us a call</h4>
+                <p><b>Office hours: 8AM to 4PM, Monday to Friday</b></p>
+                <hr class="blue"/>
+                <p><i class="fa fa-map-marker"/> 19 HARLEY STREET, CORNER OAK AND HARLEY, RANDBURG</p><br/>
+                <p><i class="fa fa-mouse-pointer"/>  www@hillcrestacademy.co.za </p><br/>
+                <p><i class="fa fa-envelope"/>  admin@hillcrestacademy.co.za </p><br/>
+
+                <h4>Office</h4>
+                <p><i class="fa fa-phone"/>&nbsp;<a href="tel:010 211 9626" class="text-dark">010 211 9626</a></p><br/>
+                <h4>Admin</h4>
+                <p><i class="fa fa-mobile-phone"/>&nbsp;<a href="tel:067 817 0501" class="text-dark">067 817 0501</a></p><br/>
+                <h4>Other Alternative Numbers</h4>
+                <p><i class="fa fa-mobile-phone"/>&nbsp;<a href="tel:062 953 4866" class="text-dark">062 953 4866</a></p><br/>
+                <p><i class="fa fa-mobile-phone"/>&nbsp;<a href="tel:078 500 6587" class="text-dark">078 500 6587</a></p><br/>
+
+                <h4><i class="fa fa-bank"/> Banking Details</h4>
+                <hr class="blue"/>
+                <p>  First National Bank (FNB) Randburg Square Branch<br/>
+                Account Number: 62700007182<br/>Branch Code: 250655<br/>
+                Ref: Child’s Name and Grade (always keep proof of payment)</p>
+                <br/>
+            </div>
+        </div>
+</div>
+<div class="clearfix"></div>
+<div class="container-fluid section-grey">
+        <div class="container section-inner">
+
+            <div class="col-md-12">
+        <h4 class="text-dark"><i class="fa fa-download"/> Downloads</h4>
+        <hr class="blue"/>
+        <ul class="text-dark">
+            <li>
+                <a class="text-dark" href="docs/Hillcrest Cambridge Aademy Learner Code of Conduct.pdf" target="_blank">Learner Code of Conduct</a>
+            </li>
+            <li>
+                <a class="text-dark" href="docs/HILLCREST CAMBRIDGE ACADEMY APPLICATION FORM.pdf" target="_blank">Application form</a>
+            </li>
+            <li>
+                <a class="text-dark" href="docs/Hillcrest Cambridge Academy Indemnity form.pdf" target="_blank">Indemnity form</a>
+            </li>
+        </ul>
+                <br/><br/>
+            </div>
+        </div>
+</div>
+<div class="clearfix"></div>
+  <div class="clearfix"></div>
+<div class="container-fluid">
+        <div class="container section">
+            <div class="col-md-6">
+                <h4>Visit us</h4>
+                <hr class="blue"/>
+                <p>19 HARLEY STREET, CORNER OAK AND HARLEY, RANDBURG</p>
+                 <img class="img-responsive" src="img/schoolPremises.jpg"/>
+            </div>
+            <div class="col-md-6">
+                <h4>Office hours</h4>
+                <hr class="blue"/>
+                <ul>
+                    <li>
+                        8AM to 4PM, Monday to Friday
+                    </li>
+                </ul>
+                <br/><br/>
+                <h4>School hours</h4>
+                <hr class="blue"/>
+                <ul>
+                    <li>
+                        Grade R - 3 | 7:45 - 13:00
+                    </li>
+                    <li>
+                        Grade 4 - 7 | 7:45 - 15:00
+                    </li>
+                    <li>
+                        Grade 8 - 12 | 7:30 - 16:00
+                    </li>
+                </ul>
+                <br/>
+            </div>
+        </div>
+</div>
+<div class="clearfix"></div>
+                    

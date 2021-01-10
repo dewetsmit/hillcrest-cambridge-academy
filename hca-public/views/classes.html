@@ -1,0 +1,266 @@
+<div class="container-fluid">
+        <div class="container section">
+            <div class="col-md-12">
+                <h2 class="text-center">Places that will be available starting now to January 2021</h2>
+                <h4 class="text-center">
+                    We offer small manageable classes with a maximum of 25 learners, spacious standard and well equipped classrooms.
+                </h4>
+            </div>
+        </div>
+</div>
+  <div class="clearfix"></div>
+<div class="container-fluid">
+        <div class="container section">
+            <div class="col-md-8">
+                <h4>Documents required on onrollment</h4>
+                <hr class="blue"/>
+                <table class="table table-responsive table-striped">
+                    <tr>
+                        <td>Grade R</td>
+                        <td>
+                            <ul>
+                                <li>
+                                   Id’s of parents/guardians and child
+                                </li>
+                                <li>
+                                   Birth certificate
+                                </li>
+                                <li>
+                                    Imunisation cards
+                                </li>
+                            </ul>
+                        </td>
+                    <tr>
+                    <tr>
+                        <td>Grade 1</td>
+                        <td>
+                            <ul>
+                                <li>
+                                   Graduation certificate 
+                                </li>
+                                <li>
+                                   Child’s birth certificate/passport 
+                                </li>
+                                <li>
+                                    Parents’ IDs’ or passport
+                                </li>
+                                <li>
+                                    Proof of res
+                                </li>
+                                <li>
+                                    Financial clearance
+                                </li>
+                            </ul>
+                        </td>
+                    <tr>
+                    <tr>
+                        <td>Grade 2 to 11, and A Level</td>
+                        <td>
+                            <ul>
+                                <li>
+                                   Child’s birth certificate/passport
+                                </li>
+                                <li>
+                                   Parents’ IDs’ or passport
+                                </li>
+                                <li>
+                                    Proof of res
+                                </li>
+                                <li>
+                                    Financial clearance
+                                </li>
+                                
+                                    Transfer letter
+                                </li>
+                                <li>
+                                    Former school report
+                                </li>
+                            </ul>
+                        </td>
+                    <tr>
+                   
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h4>Required documentation for child and parents</h4>
+                <hr class="blue"/>
+ 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn btn-default btn-block" href="docs/Hillcrest Cambridge Aademy Learner Code of Conduct.pdf" target="_blank">Learner Code of Conduct</a>        
+
+                                <a class="btn btn-default btn-block" href="docs/2021/HILLCREST CAMBRIDGE ACADEMY New Registration Form.pdf" target="_blank">New Registration Form</a>
+                           
+                                <a class="btn btn-default btn-block" href="docs/2021/HILLCREST CAMBRIDGE ACADEMY INDEMNITY FORM.pdf" target="_blank">Indemnity form</a>
+                         
+                                <a class="btn btn-default btn-block" href="docs/2021/HILLCREST CAMBRIDGE ACADEMY Fees undertaking.pdf" target="_blank">Fees undertaking</a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+</div>
+<div class="clearfix"></div>
+<div class="container-fluid section-enroll">
+        <div ng-controller="regCtrl" class="container section section-enroll-inner row">
+            <form name="regForm" id="regForm" class="well form-search form-horizontal">
+            <div class="col-md-12">
+                <h3>
+                    Secure your spot by filling in the form below
+                </h3>
+                <br/><br/>
+            </div>
+
+            <div class="col-md-6">
+                <h4 class="text-blue">
+                    Parent/Guardian
+                </h4>
+
+                    <label>Name and Surname</label>
+                    <input type="text" ng-model="parental" class="input-medium search-query form-control" placeholder="Name and surname" required >
+
+                    <label>Contact Number</label>
+                    <input type="text" ng-model="contactNumber" class="input-medium search-query form-control" placeholder="Contact Number" />
+
+                    <label>Email Address</label>
+                    <input type="email" ng-model="email" class="input-medium search-query form-control" placeholder="Email" required/>
+            </div>
+            <br/><br/>
+            <div class="col-md-6">
+                <h4 class="text-blue">
+                    Student
+                </h4>
+                    <label>Name and Surname</label>
+                    <input type="text" ng-model="student" class="input-medium search-query form-control" placeholder="Name and surname of student" required >
+                <br/>
+                <label>Grade enrolling for:</label>
+                <hr class="blue"/>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="gradeR">Grade R</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade1">Grade 1</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade2">Grade 2</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade3">Grade 3</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade4">Grade 4</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade5">Grade 5</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade6">Grade 6</label>
+                    </div>
+                </div>
+                    <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade7">Grade 7</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade8">Grade 8</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade9">Grade 9</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade10">Grade 10</label>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="radio">
+                        <label class="text-responsive"><input type="radio" ng-model="gradeRadio" value="grade11">Grade 11</label>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12 text-center" id="submitRegButton">
+                <br/><br/>
+                    <button style="width:100%" type="submit" class="btn btn-responsive btn-blue full-width text-center" ng-click="formsubmit(regForm.$valid)"  ng-disabled="!regForm.$valid">Submit </button>
+                <br/><br/>
+            </div>
+          </form>
+            <div class="alert alert-success alert-dismissable hidden" ng-model="result">
+                <span ng-click="clearForm()" class="close">×</span>
+                <strong>Success!</strong>{{result}}
+            </div>
+        </div>
+</div>
+<div class="clearfix"></div>
+<div class="container-fluid">
+        <div class="container section col-md-12">
+            <div class="col-md-4">
+                <h4>
+                    Grade R to 3
+                </h4>
+                <img class="img-responsive" src="img/gradeRto3.jpg"/>
+                </br>
+                <p>
+                    Foundation Phase
+                </p><br/><br/>
+            </div>
+            <div class="col-md-4">
+                <h4>
+                    Grade 4 to 6
+                </h4>
+                <img class="img-responsive" src="img/grade4to7.jpg"/>
+                </br>
+                <p>
+                    Intermediate Phase
+                </p><br/><br/>
+            </div>
+            <div class="col-md-4">
+                <h4>
+                    Grade 7 to 9
+                </h4>
+                <img class="img-responsive" src="img/grade8to11.jpg"/>
+                </br>
+                <p>
+                    Senior Phase
+                </p><br/><br/>
+            </div>
+            <div class="col-md-4">
+                <h4>
+                    Grade 10 to 11 (IGCSE)
+                </h4>
+                <img class="img-responsive" src="img/grade10to12.jpg"/>
+                </br>
+                <p>
+                    Further Education
+                </p><br/><br/>
+            </div>
+            <div class="col-md-4">
+                <h4>
+                    AS and A Level
+                </h4>
+                <img class="img-responsive" src="img/AS_and_A_level.jpg"/>
+                </br>
+                <p>
+                    Further Education
+                </p><br/><br/>
+            </div>
+        </div>
+</div>
+<div class="clearfix"></div>

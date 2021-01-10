@@ -1,0 +1,277 @@
+﻿    <script type="text/ng-template" id="gallery.html">
+        <div class="modal-demo">
+                <div class="modal-header" style="">
+                    <button type="button" class="close"ng-click="$ctrl.cancel()" aria-hidden="true">
+                        ×
+                    </button>
+                </div>
+                <div class="modal-body" style="padding:0px;">
+                    
+                        <div ng-controller="galleryCtrl">
+                                            <div uib-carousel active="active" data-keyboard="true">
+                                              <div uib-slide ng-repeat="image in getAlbum() track by image.id" index="image.id">
+                                                <img class="img-responsive" ng-src="{{image.src}}" style="margin:auto;"/>
+                                              </div>
+                                            </div>
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class=" row">
+                        <div class="col-md-12 text-center center-block">
+                            <a class="btn btn-default text-center" href="/contact" ng-click="$ctrl.cancel()"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Enquire now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </script>
+
+  <!--script type="text/ng-template" id="customAccordionGroup.html">
+    <div class="panel-heading accordion-toggle section-grey" uib-accordion-header uib-accordion-transclude="heading" ng-click="toggleOpen()" style="cursor:pointer">
+        <i style="margin-top:25px"; class="pull-right glyphicon" ng-class="{'glyphicon-chevron-right': isOpen, 'glyphicon-chevron-down': !isOpen}"></i>
+        <p class="title-md">Custom</p>
+        <h4>A custom range with endless possibilities.</h4>
+    </div>
+    <div class="panel-collapse collapse" uib-collapse="isOpen">
+      <div class="panel-body section section-grey" ng-transclude>
+    </div>
+  </script-->
+
+<div class="container-fluid">
+        <div class="container section">
+            <div class="col-md-12">
+                <h4>
+                   This is our life in pictures at HCA. 
+                </h4>
+                <p>Allow us to take your child through a journey to success.</p>
+                <hr class="blue"/>
+
+                <img src="img/roadToSuccess.jpg" class="img-responsive"/>
+            </div>
+        </div>
+</div>
+
+
+<!-- <div class="container-fluid section-grey" ng-controller="ModalCtrl as $ctrl">
+<uib-accordion>
+    <div uib-accordion-group template-url="customAccordionGroup.html" class="container section-grey" style="padding:15px;">
+        <div class="row" ng-controller="galleryCtrl">
+                <div ng-repeat="item in custom" class="col-md-3 col-sm-6 col-xs-6 text-center">
+                    <img ng-click="setActive($index, 'custom'); $ctrl.open('lg', 'gallery.html')" class="img-responsive thumbnail" src="{{item.src}}"/>
+                </div>
+        </div>
+    </div>
+  </uib-accordion>
+</div> -->
+<div class="clearfix"></div>
+<div class="container-fluid" ng-controller="ModalCtrl as $ctrl">
+
+    <div class="container section" ng-controller="galleryCtrl">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <div ng-if="!loading && albumList.length > 0" ng-repeat="album in albumList" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                <div ng-click="setActiveAlbum(album.name)" class="gallery gallery-tab" ng-class="{ active: album.name == activeAlbum }">
+                    <p>{{album.name}}</p>
+                </div><br/>
+            </div>
+            <img ng-if="loading" style="margin: auto;" src="../img/loading.gif"/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div ng-repeat="item in activeAlbumList" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                    <div class="gallery" >
+                        <img class="img-responsive" src="{{item}}"/>
+                    </div><br/>
+                </div>
+        </div>
+    </div>
+<!-- 
+
+        <div class="col-md-12" ng-if="activeAlbum=='galleryFriends'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>Friends</h4>
+            <hr class="blue"/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div ng-repeat="item in galleryFriends" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'galleryFriends'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div><br/>
+
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12" ng-if="activeAlbum=='galleryBirthday'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>Birthday Celebrations</h4>
+            <hr class="blue"/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div ng-repeat="item in galleryBirthday" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'galleryBirthday'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div><br/>
+
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12" ng-if="activeAlbum=='galleryIT'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>IT Lessons</h4>
+            <hr class="blue"/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div ng-repeat="item in galleryIT" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'galleryIT'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div><br/>
+
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12" ng-if="activeAlbum=='gallerySongAndDance'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>Song and Dance</h4>
+            <hr class="blue"/>
+            <div class="col-md-12 col-lg-12 col-sm-12" >
+                    <div ng-repeat="item in gallerySongAndDance" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'gallerySongAndDance'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div><br/>
+
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12" ng-if="activeAlbum=='galleryVolleyball'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>Volleyball time</h4>
+            <hr class="blue"/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div ng-repeat="item in galleryVolleyball" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'galleryVolleyball'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div><br/>
+
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12" ng-if="activeAlbum=='gallery'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>Hillcrest Cambridge Academy launched in style.</h4>
+            <hr class="blue"/>
+            <p>The HCA was opened and launched officially in a ceremony attended by over 60 guests who comprised the founders, invited guests, prospective parents and students.</p><br/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div ng-repeat="item in gallery" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'gallery'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div><br/>
+                        <div style="min-height:90px;">
+                            <p>{{item.desc}}</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-12" ng-if="activeAlbum=='galleryGrade1Opening'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>Grade 1 in class, opening week 2017.</h4>
+            <hr class="blue"/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div ng-repeat="item in galleryGrade1Opening" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'galleryGrade1Opening'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div><br/>
+                        <div style="min-height:90px;">
+                            <p>{{item.desc}}</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12" ng-if="activeAlbum=='galleryTimeforart'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>It's art time for grades 5, 6 and 7.</h4>
+            <hr class="blue"/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div ng-repeat="item in galleryTimeforart" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'galleryTimeforart'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12" ng-if="activeAlbum=='galleryGymnastics'">
+            <a class="pull-right link" ng-click="setActive($index,'')"><i class="fa fa-close" style="font-size:28px;color:#000000;"></i></a>
+            <h4>Gymnastics Lessons</h4>
+             <hr class="blue"/>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                    <div ng-repeat="item in galleryGymnastics" class="col-md-3 col-sm-6 col-xs-12 text-center">
+                        <div class="gallery" >
+                            <img ng-click="setActive($index, 'galleryGymnastics'); $ctrl.open('lg', 'gallery.html')" class="img-responsive" src="{{item.src}}"/>
+                        </div>
+                    </div>
+            </div>
+        </div>
+ -->
+
+
+
+      <!-- <div  class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>Friends</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'galleryFriends')" class="img-responsive" src="{{galleryFriends[0].src}}"/><br/>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>Birthday Celebrations</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'galleryBirthday')" class="img-responsive" src="{{galleryBirthday[0].src}}"/><br/>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>IT Lessons</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'galleryIT')" class="img-responsive" src="{{galleryIT[0].src}}"/><br/>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>Song and Dance</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'gallerySongAndDance')" class="img-responsive" src="{{gallerySongAndDance[0].src}}"/><br/>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>It's art time</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'galleryTimeforart')" class="img-responsive" src="{{galleryTimeforart[2].src}}"/><br/>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>Gymnastics Lessons</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'galleryGymnastics')" class="img-responsive" src="{{galleryGymnastics[0].src}}"/><br/>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>Volleyball time</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'galleryVolleyball')" class="img-responsive" src="{{galleryVolleyball[0].src}}"/><br/>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>Hillcrest Cambridge Academy launch</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'gallery')" class="img-responsive" src="{{gallery[0].src}}"/><br/>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 gallery">
+                <h4>Grade 1 in class, opening week 2017</h4>
+                <hr class="blue"/>
+                <img ng-click="setActive($index, 'galleryGrade1Opening')" class="img-responsive" src="{{galleryGrade1Opening[0].src}}"/><br/>
+            </div>
+        </div> -->
+
+    </div>
+</div>
+</div><br/><br/><div class="clearfix"></div>

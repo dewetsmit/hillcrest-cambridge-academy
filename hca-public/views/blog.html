@@ -1,0 +1,19 @@
+<!-- <iframe class="col-12 mt-5" src="https://hca-randburg.blogspot.com/"></iframe> -->
+<div class="container-fluid">
+    <div class="container section">
+        <div class="col-md-12">
+            <div ng-repeat="post in blog.items" class="post">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <img class="img img-responsive" ng-src="{{post.images[0].url}}"/>
+                </div>
+                <div class="col-md-9">
+                    <h1>{{post.title}}</h1>
+                    <span>{{post.updated | date: "dd MMMM yyyy"}}</span>
+                    <br/>
+                    <p ng-bind-html="post.content | to_trusted"></p>
+                </div>
+            </div>
+</div>
+</div>
+</div>

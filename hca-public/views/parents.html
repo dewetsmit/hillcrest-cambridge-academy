@@ -1,0 +1,104 @@
+﻿<div class="container-fluid">
+        <div class="container section">
+            <div class="col-md-6">
+                <h4>
+                   Parent Teachers Association
+                </h4>
+                <hr class="blue"/>
+                <p>At HCA we strongly believe in a community school. The school belongs to all shareholders who support it. We are open to work with the parents through a Parents Represented Board elected by the parents themselves. The business community that abuzz the community around and that form HCA’s business partners are welcome to contribute to the wellbeing of the school. The religious civic communities and government are all welcome to contribute in well being of HCA.</p>
+                <div class="clearfix"></div><br/>
+            </div>
+            <div class="col-md-6">
+                <h4>
+                   Parental Grade Leaders 
+                </h4>
+                <hr class="blue"/>
+                <p>Coordinating a project such as a school calls for an insurmountable amount of work, support and effort. At HCA we acknowledge the participation of parents at grade level too. In this regard parents will be welcome to meet and discuss education with regards to a particular grade in which their children will be enrolled.  Such gatherings will be free to elect their own parent grade leader and contribute to the life of the school.</p>
+                <div class="clearfix"></div><br/>
+            </div>
+        </div>
+</div>
+<div class="clearfix"></div>
+<div class="container-fluid section-blue">
+    <div class="container section" ng-controller="contactParentsCtrl">
+        <form name="parentForm" id="parentForm" class="form-search form-horizontal">
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <h3 class="text-white">
+                      Find out more about how to become part of your child's life at HCA
+                    </h3>
+                     <hr class="light"/>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="text-white">Name and Surname</label>
+                    <input type="text" ng-model="parental" class="input-medium search-query form-control" placeholder="Name and surname" required >
+
+                    <label class="text-white">Contact Number</label>
+                    <input type="text" ng-model="contactNumber" class="input-medium search-query form-control" placeholder="Contact Number" />
+
+                    <label class="text-white">Email Address</label>
+                    <input type="email" ng-model="email" class="input-medium search-query form-control" placeholder="Email" required/>
+                </div>
+            </div>
+            <div class="col-md-6">
+               <div class="clearfix"></div> <br/><br/>
+                    <label class="text-white">Grade of interest:</label>
+                    <hr class="light"/>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="gradeR">Grade R</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade1">Grade 1</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade2">Grade 2</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade3">Grade 3</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade4">Grade 4</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade5">Grade 5</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade6">Grade 6</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade7">Grade 7</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade8">Grade 8</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade9">Grade 9</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade10">Grade 10</label>
+                        </div>
+                        <div class="radio">
+                            <label class="text-responsive text-white"><input type="radio" ng-model="gradeRadio" name="gradeRadio" value="grade11">Grade 11</label>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-12 text-center" id="submitParButton">
+                        <br/><br/>
+                            <button style="width:100%" type="submit" class="btn btn-responsive btn-blue full-width text-center" ng-click="formsubmit(parentForm.$valid)"  ng-disabled="!parentForm.$valid">Submit </button>
+                        <br/><br/>
+                    </div>
+                               <div class="clearfix"></div> <br/><br/>
+                </div>
+            </form>
+            <div class="alert alert-success alert-dismissable hidden" ng-model="result">
+                <span ng-click="clearForm()" class="close">×</span>
+                <strong>Success!</strong>{{result}}
+            </div>
+            </div>
+    </div>
+</div>
+<div class="clearfix"></div>
