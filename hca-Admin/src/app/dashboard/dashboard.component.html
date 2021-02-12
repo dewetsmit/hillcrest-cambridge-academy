@@ -5,6 +5,7 @@
             <option *ngFor="let album of albums" [ngValue]="album">{{album.name}}</option>
         </select>
         <p>{{files.length}} images</p>
+        <p>Description: {{album?.description ? album.description : ''}}</p>
     </div>
     <div class="actions">
         <button (click)="toggleCreate()">Create New Album</button>
@@ -30,10 +31,12 @@
             <button (click)="toggleCreate()">X</button>
         </div>
     </div>
-    <form>
+    <form [formGroup]="newAlbumForm" (ngSubmit)="onSubmit()">
         <label>Name</label>
-        <input placeholder="Album name" type="text"/>
-        <button (click)="createAlbum('test3')">Save</button>
+        <input formControlName="albumName" placeholder="Album name" type="text"/>
+        <label>Description</label>
+        <textarea formControlName="description" rows="3" placeholder="Album description" type="text"></textarea>
+        <button [disabled]="newAlbumForm.invalid" (click)="createAlbum(newAlbumName)">Save {{newAlbumName}}</button>
     </form>
 </div>
 <div class="backdrop" (click)="toggleCreate()" [class.active]="createNew"></div>
