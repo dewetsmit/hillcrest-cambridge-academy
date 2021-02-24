@@ -37,20 +37,23 @@ export class DashboardComponent implements OnInit {
   }
 
   getAlbumList(){
+    this.albums = [];
+    this.album = null;
+    this.files = [];
     this.galleryRef.get().subscribe(res => {
-      res.docs.forEach(album=>{
-        this.albums.push(album.data());
-      });
-      this.album = this.albums[0];
-
-      console.log(' album:', this.album);
-      this.getAlbum(this.album.name);
+      if(res.docs.length > 0){
+        res.docs.forEach(album=>{
+          this.albums.push(album.data());
+        });
+        this.album = this.albums[0];
+        this.getAlbum(this.album.name);
+      }
     });
   }
 
   getAlbum(albumName){
-    this.loader.start();
     this.files = [];
+    this.loader.start();
     this.ref = this.storage.ref(`${albumName}/`);
     this.ref.listAll().subscribe(res => {
       res.items.forEach(element => {
@@ -62,6 +65,27 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  deleteAlbum(albumName){
+    this.loader.start();
+    this.files = [];
+    this.galleryRef.doc(albumName).delete();
+    this.ref = this.storage.ref(`${albumName}/`);
+
+    this.ref.listAll().subscribe(res => {
+      if(res.items){
+        res.items.forEach(element => {
+          try{
+            element.delete()
+          }catch(err){
+            console.log(err);
+          }
+          });
+      }
+    });
+    this.loader.stop();
+    this.getAlbumList();
+  }
+
   onSubmit(){
     console.log(this.newAlbumForm.value); 
     this.createAlbum(this.newAlbumForm.value)
@@ -70,16 +94,17 @@ export class DashboardComponent implements OnInit {
   createAlbum(album){
     let that = this;
     if(album){
-      this.galleryRef.add({
+      this.galleryRef.doc(album.albumName).set({
         name: album.albumName,
         description: album.description
       })
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
+      .then(docRef => {
+        console.log("Document written with NAme: ", docRef);
         that.newAlbumForm.reset();
         that.toggleCreate();
+        that.getAlbumList();
       })
-      .catch(function(error) {
+      .catch(error => {
         console.error("Error adding document: ", error);
       });
     }else{

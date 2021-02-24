@@ -988,5 +988,23 @@ input{
     from        { opacity: 0.3; -moz-transform: translateY(-20px);}}
 }
 @-webkit-keyframes fadeInDown {
-    from        { opacity: 0.3; -webkit-transform: translateY(-20px);}}
+    from        { opacity: 0.3; -webkit-transform: translateY(-20px);}
+}
+
+.flex-grid{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .flex-grid .col{
+        flex-wrap: wrap;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .flex-grid .col img{
+      width: auto;
+      max-height: 150px;
 }

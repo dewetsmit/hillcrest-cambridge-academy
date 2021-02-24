@@ -64,24 +64,25 @@
   </uib-accordion>
 </div> -->
 <div class="clearfix"></div>
-<div class="container-fluid" ng-controller="ModalCtrl as $ctrl">
+<div class="container-fluid" >
 
     <div class="container section" ng-controller="galleryCtrl">
-        <div class="col-md-12 col-lg-12 col-sm-12">
-            <div ng-if="!loading && albumList.length > 0" ng-repeat="album in albumList" class="col-md-3 col-sm-6 col-xs-12 text-center">
-                <div ng-click="setActiveAlbum(album.name)" class="gallery gallery-tab" ng-class="{ active: album.name == activeAlbum }">
-                    <p>{{album.name}}</p>
-                </div><br/>
+
+        <div class="row">
+            <div ng-repeat="album in albumList" ng-click="setActiveAlbum(album.name)" class="gallery gallery-tab col-md-3 col-sm-6 col-xs-12 text-center" ng-class="{ active: album.name == activeAlbum }">
+                <p>{{album.name}}</p>
             </div>
-            <img ng-if="loading" style="margin: auto;" src="../img/loading.gif"/>
-            <div class="col-md-12 col-lg-12 col-sm-12">
-                <div ng-repeat="item in activeAlbumList" class="col-md-3 col-sm-6 col-xs-12 text-center">
-                    <div class="gallery" >
-                        <img class="img-responsive" src="{{item}}"/>
-                    </div><br/>
+        </div><br/>
+            <div ng-if="!loading" class="row" ng-if="activeAlbum">
+                <h1>{{activeAlbum}}</h1>
+                <p ng-if="activeAlbum && activeAlbumList.length === 0">Empty album</p>
+                <div class="flex-grid" ng-if="activeAlbumList.length > 0">
+                        <div class="col" ng-repeat="item in activeAlbumList">
+                            <img  class="img-responsive" src="{{item}}"/>
+                        </div>
                 </div>
-        </div>
-    </div>
+            </div>
+        <img ng-if="loading" style="margin: auto;" src="../img/loading.gif"/>
 <!-- 
 
         <div class="col-md-12" ng-if="activeAlbum=='galleryFriends'">

@@ -1,5 +1,5 @@
 <div class="toolbar">
-    <div class="header">
+    <div class="header" *ngIf="album">
         <label>Album</label>
         <select [(ngModel)]="album" (change)="onChange()">
             <option *ngFor="let album of albums" [ngValue]="album">{{album.name}}</option>
@@ -8,17 +8,18 @@
         <p>Description: {{album?.description ? album.description : ''}}</p>
     </div>
     <div class="actions">
+        <button *ngIf="album" (click)="deleteAlbum(album.name)">Delete Album</button>
         <button (click)="toggleCreate()">Create New Album</button>
     </div>
 </div>
-<div class="flex-grid">
+<div class="flex-grid" *ngIf="files">
     <div class="flex-grid col">
         <div class="col" *ngFor="let item of files">
             <img [src]="item"/>
         </div>
     </div>
 </div>
-<uploader [albumName]="album?.name"></uploader>
+<uploader *ngIf="album" [albumName]="album?.name" (complete)="getAlbumList()"></uploader>
 
 <ngx-ui-loader></ngx-ui-loader>
 

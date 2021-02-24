@@ -394,7 +394,7 @@ app.controller('galleryCtrl', function($scope, $rootScope){
     $scope.activeAlbumList = [];
     $scope.albumList = [];
     $scope.loading = false;
-  $scope.getAlbumList = function() {
+    $scope.getAlbumList = function() {
     $scope.loading = true;
     var galleryRef = firebase.firestore().collection("Gallery")
     setTimeout(function() {
@@ -402,37 +402,32 @@ app.controller('galleryCtrl', function($scope, $rootScope){
           res.docs.forEach(function(album){
             $scope.$apply(function(){$scope.albumList.push(album.data())});
           });
-
-          $scope.getFromFirebase($scope.albumList[0].name);
-          $scope.activeAlbum = $scope.albumList[0].name;
         });
         $scope.loading = false;
     }, 1000);
   }
 
   $scope.getFromFirebase = function(album){
-    $scope.loading = true;
+    $functionScope = this;
     $scope.activeAlbumList = [];
+    $scope.loading = true;
     var storage = firebase.storage();
     var storageRef = storage.ref();
-
       setTimeout(function() {
+        $scope.loading = true;
         storageRef.child(album+'/').listAll().then(function(result){
-          result.items.forEach(function(item){
-             item.getDownloadURL().then(function(img){
-              $scope.$apply(function(){$scope.activeAlbumList.push(img)});
-             })
-            });
-        });
-        $scope.loading = false;
+
+          console.log(' got in:', );
+            result.items.forEach(function(item){
+              item.getDownloadURL().then(function(img){
+               $scope.$apply(function(){$scope.activeAlbumList.push(img)});
+              })
+             });
+        })
+        .catch(function(){$scope.loading = false;console.log(err)})
+        .finally(function(){$scope.loading = false;})
       }, 1000);
   }
-
-  if($scope.activeAlbum !== ""){
-    $scope.getFromFirebase('test');
-  }
-
-  console.log(' list:', $scope.albumList.length);
     $scope.getAlbumList();
 
   $scope.setActiveAlbum = function(album){
